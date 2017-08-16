@@ -22,7 +22,6 @@ int child_count;
 int com_count;
 while(fgets(buffer, 256, fp) != NULL){
         fscanf(fp, "%s", buffer);
-        printf("%s\n", buffer);
         if(strcmp(buffer,"Image") == 0){
             image_count++;
         }else if(strcmp(buffer, "lineTo") == 0){
