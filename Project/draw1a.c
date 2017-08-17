@@ -20,8 +20,8 @@ int draw_count;
 int translate_count;
 int child_count;
 int com_count;
-while(fgets(buffer, 256, fp) != NULL){
-        fscanf(fp, "%s", buffer);
+    while(!feof(fp)){
+        fscanf(fp,"%s%*[^\n]",buffer);
         if(strcmp(buffer,"Image") == 0){
             image_count++;
         }else if(strcmp(buffer, "lineTo") == 0){
@@ -39,7 +39,9 @@ while(fgets(buffer, 256, fp) != NULL){
         }else if(strcmp(buffer, "#") == 0){
             com_count++;
         }
-}
+
+    }
+
 printf("%d Image definition(s)\n", image_count);
 printf("%d lineto command(s)\n", lineto_count);
 printf("%d End command(s)\n", end_count);
@@ -51,3 +53,4 @@ printf("%d comment(s)\n", com_count);
 fclose(fp);
 return 0;
 }
+
